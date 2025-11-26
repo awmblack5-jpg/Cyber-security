@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التوعية السيبرانية — درع الهوية الوطنية</title>
+<style>
+:root{
+  --bg:#071024;
+  --card:rgba(255,255,255,0.03);
+  --glass:rgba(255,255,255,0.04);
+  --main:#ffd700;
+  --accent:#ff9e00;
+  --muted:#9ab0be;
+  --text:#e9eef3;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif;}
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,#031023 0%,#071024 100%);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+.wrap{
+  width:100%;
+  max-width:920px;
+  background:var(--card);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+header h1{color:var(--main);font-size:1.2rem}
+header p{color:var(--muted);font-size:0.95rem}
+
+.tips-cards{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.card{
+  background:var(--glass);
+  padding:14px;
+  border-radius:12px;
+  min-width:220px;
+  flex:1;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  transition:transform .15s,box-shadow .15s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.card h3{color:var(--main);margin-bottom:8px}
+.card p{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
+
+.btn{
+  background:linear-gradient(90deg,var(--main),var(--accent));
+  color:#000;border:none;padding:9px 12px;border-radius:10px;font-weight:700;cursor:pointer;
+}
+.btn.small{padding:8px 10px;font-size:.95rem}
+.quiz{margin-top:10px;background:var(--glass);padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4);}
+.quiz h3{color:var(--main);margin-bottom:8px}
+.quiz p{color:var(--muted);margin-bottom:10px}
+.quiz .options label{display:block;color:var(--text);margin-bottom:6px;cursor:pointer}
+.quiz .options input{margin-left:8px}
+#quizResult{margin-top:10px;font-weight:800}
+
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:999}
+.modal{background:var(--card);padding:18px;border-radius:12px;max-width:560px;width:92%;text-align:right;color:var(--text);box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+.modal h3{color:var(--main);margin-bottom:8px}
+.modal p{color:var(--muted);line-height:1.7}
+.modal .close{margin-top:12px;padding:8px 10px;border-radius:10px;background:#222;border:none;color:var(--text);cursor:pointer}
+
+#backBtn{
+  margin-top:20px;
+  background:#222;
+  color:var(--text);
+  font-weight:700;
+  border-radius:10px;
+  padding:10px 14px;
+  cursor:pointer;
+  border:none;
+}
+
+@media (max-width:720px){
+  .tips-cards{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="wrap" role="main" aria-label="التوعية السيبرانية">
+<header>
+  <div>
+    <h1>🧠 التوعية السيبرانية</h1>
+    <p>تعرف على أهم نصائح الأمن الرقمي وقم بتقييم وعيك عبر اختبار متقدم.</p>
+  </div>
+  <div><small style="color:var(--muted)">درع الهوية الوطنية</small></div>
+</header>
+
+<!-- بطاقات النصائح -->
+<div class="tips-cards" aria-label="بطاقات النصائح">
+  <div class="card" tabindex="0" data-content="استخدم مزيج من الحروف الكبيرة والصغيرة، الأرقام والرموز. لا تستخدم كلمات شائعة أو تواريخ ميلاد. غيّر كلمات المرور بشكل دوري ولا تستخدم نفس الكلمة لأكثر من حساب.">
+    <h3>🔒 كلمات المرور</h3>
+    <p>استخدم كلمات مرور قوية ومختلفة لكل حساب.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+  <div class="card" tabindex="0" data-content="احذر الروابط المجهولة. إذا وصلك رابط غير متوقع من صديق تأكد منه أولاً عبر وسيلة تواصل أخرى. لا تدخل بياناتك الشخصية في مواقع غير موثوقة.">
+    <h3>📧 البريد الإلكتروني</h3>
+    <p>تجنّب فتح الروابط المشبوهة من مرسلين غير معروفين.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+  <div class="card" tabindex="0" data-content="حدّث نظام التشغيل والبرامج بانتظام. استخدم مضاد فيروسات محدث، ولا تتصل بشبكات Wi‑Fi عامة بدون VPN. قم بنسخ احتياطي لملفاتك المهمة.">
+    <h3>🖥️ الأجهزة</h3>
+    <p>احرص على تحديث برامجك ونظم التشغيل باستمرار.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+</div>
+
+<!-- الاختبار المتقدم -->
+<div class="quiz" aria-label="اختبار الوعي السيبراني">
+  <h3>📝 اختبار متقدم للوعي السيبراني</h3>
+  <p style="color:var(--muted)">اختر الإجابة الصحيحة لكل سؤال:</p>
+
+  <div class="question" data-answer="correct">
+    <div style="margin-bottom:6px;font-weight:700;color:var(--text)">س1: ما التصرف الصحيح عند طلب كلمة المرور؟</div>
+    <div class="options" style="text-align:right;">
+      <label><input type="radio" name="q1" value="wrong"> مشاركة كلمة المرور مع صديق</label>
+      <label><input type="radio" name="q1" value="correct"> الاحتفاظ بكلمة المرور سرية</label>
+      <label><input type="radio" name="q1" value="wrong"> كتابتها على ورقة في المكتب</label>
+    </div>
+  </div>
+
+  <div class="question" data-answer="correct">
+    <div style="margin-bottom:6px;font-weight:700;color:var(--text)">س2: عند استقبال رابط من بريد مجهول، ماذا تفعل؟</div>
+    <div class="options" style="text-align:right;">
+      <label><input type="radio" name="q2" value="wrong"> فتحه مباشرة</label>
+      <label><input type="radio" name="q2" value="wrong"> تحميل الملفات المرفقة</label>
+      <label><input type="radio" name="q2" value="correct"> تجاهله أو التأكد من المرسل أولاً</label>
+    </div>
+  </div>
+
+  <div class="question" data-answer="correct">
+    <div style="margin-bottom:6px;font-weight:700;color:var(--text)">س3: ما هو أفضل تصرف عند استخدام شبكة Wi-Fi عامة؟</div>
+    <div class="options" style="text-align:right;">
+      <label><input type="radio" name="q3" value="wrong"> الدخول مباشرة لكل حساباتك</label>
+      <label><input type="radio" name="q3" value="correct"> استخدام VPN وحماية جهازك</label>
+      <label><input type="radio" name="q3" value="wrong"> مشاركة ملفاتك الشخصية مع الآخرين</label>
+    </div>
+  </div>
+
+  <button id="quizBtn" class="btn small" style="margin-top:10px;">تحقق من الإجابة</button>
+  <div id="quizResult" style="margin-top:10px;font-weight:800;color:var(--main)"></div>
+
+  <!-- زر العودة للأقسام -->
+  <button id="backBtn" onclick="window.location.href='features.html'">⬅️ العودة للأقسام</button>
+</div>
+</div>
+
+<!-- مودال النصائح الموسعة -->
+<div id="overlay" class="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3 id="modalTitle">تفاصيل</h3>
+    <p id="modalContent"></p>
+    <button id="closeModal" class="modal-close close">إغلاق</button>
+  </div>
+</div>
+
+<script>
+  // النصائح الموسعة
+  document.querySelectorAll('.showMore').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const card = btn.closest('.card');
+      document.getElementById('modalTitle').textContent = card.querySelector('h3').textContent;
+      document.getElementById('modalContent').textContent = card.dataset.content;
+      document.getElementById('overlay').style.display='flex';
+      document.getElementById('overlay').setAttribute('aria-hidden','false');
+    });
+  });
+
+  document.getElementById('closeModal').addEventListener('click',()=>{
+    document.getElementById('overlay').style.display='none';
+    document.getElementById('overlay').setAttribute('aria-hidden','true');
+  });
+  document.getElementById('overlay').addEventListener('click',e=>{
+    if(e.target===document.getElementById('overlay')){
+      document.getElementById('overlay').style.display='none';
+      document.getElementById('overlay').setAttribute('aria-hidden','true');
+    }
+  });
+
+  // اختبار الوعي السيبراني المتقدم
+  document.getElementById('quizBtn').addEventListener('click',()=>{
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+    questions.forEach(q=>{
+      const name = q.querySelector('input').name;
+      const selected = document.querySelector(`input[name="${name}"]:checked`);
+      if(selected && selected.value === q.dataset.answer) score++;
+    });
+    const result = document.getElementById('quizResult');
+    result.textContent = `لقد حصلت على ${score} من ${questions.length} سؤال✅`;
+    if(score===questions.length) result.style.color = '#8ef08a';
+    else result.style.color = '#ffd700';
+  });
+</script>
+</body>
+</html>

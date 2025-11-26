@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>واجهة مشروع السيبراني</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+  :root{
+    --main:#ffd700;
+    --accent:#ff9e00;
+    --bg:#071024;
+    --text:#e9eef3;
+    --radius:14px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+
+  body{
+    height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#031023,#071024);
+    perspective:1000px;
+    overflow:hidden;
+  }
+
+  .container{
+    text-align:center;
+    color:var(--text);
+    transform-style:preserve-3d;
+    animation:float 6s ease-in-out infinite;
+  }
+
+  @keyframes float{
+    0%{transform:translateY(0px) rotateY(0deg);}
+    50%{transform:translateY(-20px) rotateY(10deg);}
+    100%{transform:translateY(0px) rotateY(0deg);}
+  }
+
+  .logo{
+    font-size:4rem;
+    color:var(--main);
+    text-shadow:0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(255,158,0,0.4);
+    animation:glow 2s infinite alternate;
+  }
+
+  @keyframes glow{
+    0%{text-shadow:0 0 10px rgba(255,215,0,0.3),0 0 20px rgba(255,158,0,0.2);}
+    100%{text-shadow:0 0 20px rgba(255,215,0,0.8),0 0 40px rgba(255,158,0,0.6);}
+  }
+
+  h1{
+    font-size:2.2rem;
+    margin:20px 0 10px;
+    transform:translateZ(30px);
+  }
+
+  p{
+    font-size:1.1rem;
+    color:var(--text);
+    opacity:0.8;
+    margin-bottom:30px;
+    transform:translateZ(20px);
+  }
+
+  .btn{
+    padding:14px 28px;
+    font-size:1.1rem;
+    font-weight:700;
+    border:none;
+    border-radius:var(--radius);
+    background:linear-gradient(90deg,var(--main),var(--accent));
+    color:#000;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(255,215,0,0.3);
+    transition:all 0.3s ease;
+    transform:translateZ(40px);
+  }
+
+  .btn:hover{
+    transform:translateZ(40px) scale(1.1);
+    box-shadow:0 12px 30px rgba(255,215,0,0.6);
+  }
+
+  /* خلفية دوامة 3D */
+  .background{
+    position:absolute;
+    top:50%;left:50%;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle,rgba(255,215,0,0.1),transparent 70%);
+    transform:translate(-50%, -50%) rotateX(60deg) rotateZ(25deg);
+    animation:rotateBG 20s linear infinite;
+    z-index:-1;
+  }
+
+  @keyframes rotateBG{
+    0%{transform:translate(-50%, -50%) rotateX(60deg) rotateZ(0deg);}
+    100%{transform:translate(-50%, -50%) rotateX(60deg) rotateZ(360deg);}
+  }
+
+  @media(max-width:720px){
+    h1{font-size:1.6rem;}
+    .logo{font-size:3rem;}
+    .btn{padding:10px 20px;font-size:1rem;}
+  }
+</style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="logo">🛡️</div>
+    <h1>درع الهوية الوطنية</h1>
+    <p>أدوات سيبرانية متكاملة لحماية معلوماتك ورفع وعيك الرقمي.</p>
+    <button class="btn" onclick="goTofeatures()">ابدأ الآن</button>
+  </div>
+
+<script>
+  function goTofeatures(){
+    window.location.href = 'features.html';
+}
+
+</script>
+</body>
+</html>

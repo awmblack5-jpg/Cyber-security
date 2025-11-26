@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا — درع الهوية الوطنية</title>
+<style>
+body{font-family:'Cairo',sans-serif;background:#00111f;color:#e9eef3;display:flex;flex-direction:column;align-items:center;padding:30px;}
+h1{color:#ffd700;margin-bottom:20px;}
+form{display:flex;flex-direction:column;width:320px;}
+input,textarea{margin-bottom:12px;padding:10px;border-radius:10px;border:none;background:rgba(255,255,255,0.05);color:#e9eef3;}
+button{padding:10px 14px;border:none;border-radius:10px;background:#ffd700;color:#000;font-weight:700;cursor:pointer;}
+a{color:#ffd700;text-decoration:none;margin-bottom:12px;}
+</style>
+</head>
+<body>
+<h1>✉️ تواصل معنا</h1>
+
+<form onsubmit="alert('تم إرسال الرسالة (وهمي)');return false;">
+  <input type="text" placeholder="الاسم" required>
+  <input type="email" placeholder="البريد الإلكتروني" required>
+  <textarea rows="4" placeholder="رسالتك" required></textarea>
+  <button type="submit">إرسال</button>
+</form>
+
+<p>أو تواصل معنا مباشرة عبر:</p>
+<a href="mailto:awmblack5@gmail.com">البريد: awmblack5@gmail.com</a>
+<a href="https://instagram.com/2_7_i" target="_blank">إنستغرام: 2_7_i</a>
+
+<button onclick="window.location.href='features.html'">⬅️ العودة للأقسام</button>
+</body>
+</html>

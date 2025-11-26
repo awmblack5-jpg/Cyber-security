@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التقارير والتحليلات العالمية — درع الهوية الوطنية</title>
+<style>
+:root{
+  --bg:#071024;
+  --card:rgba(255,255,255,0.03);
+  --glass:rgba(255,255,255,0.04);
+  --main:#ffd700;
+  --accent:#ff9e00;
+  --muted:#9ab0be;
+  --text:#e9eef3;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif;}
+body{
+  min-height:100vh;
+  background:linear-gradient(180deg,#031023 0%,#071024 100%);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+.wrap{
+  width:100%;
+  max-width:920px;
+  background:var(--card);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+  backdrop-filter:blur(6px);
+}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+header h1{color:var(--main);font-size:1.2rem}
+header p{color:var(--muted);font-size:0.95rem}
+
+.attack-cards{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.card{
+  background:var(--glass);
+  padding:14px;
+  border-radius:12px;
+  min-width:220px;
+  flex:1;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  transition:transform .15s,box-shadow .15s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.card h3{color:var(--main);margin-bottom:8px}
+.card p{color:var(--muted);font-size:0.95rem;margin-bottom:10px}
+
+.btn{
+  background:linear-gradient(90deg,var(--main),var(--accent));
+  color:#000;border:none;padding:9px 12px;border-radius:10px;font-weight:700;cursor:pointer;
+}
+.btn.small{padding:8px 10px;font-size:.95rem}
+.btn.back{margin-top:12px;background:#222;color:var(--text)}
+
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:999}
+.modal{background:var(--card);padding:18px;border-radius:12px;max-width:560px;width:92%;text-align:right;color:var(--text);box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+.modal h3{color:var(--main);margin-bottom:8px}
+.modal p{color:var(--muted);line-height:1.7}
+.modal .close{margin-top:12px;padding:8px 10px;border-radius:10px;background:#222;border:none;color:var(--text);cursor:pointer}
+
+@media (max-width:720px){
+  .attack-cards{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="wrap" role="main" aria-label="التقارير والتحليلات العالمية">
+<header>
+  <div>
+    <h1>🌐 تقارير وتحليلات الهجمات السيبرانية العالمية</h1>
+    <p>تعرف على أبرز الهجمات السيبرانية حول العالم، أنواعها، وأحدث الإحصائيات.</p>
+  </div>
+  <div><small style="color:var(--muted)">درع الهوية الوطنية</small></div>
+</header>
+
+<!-- بطاقات الهجمات -->
+<div class="attack-cards" aria-label="بطاقات الهجمات">
+  <div class="card" tabindex="0" data-content="Ransomware هو هجوم يقوم فيه المهاجم بتشفير ملفات الضحية ويطلب فدية مقابل فك التشفير. في 2024، هناك زيادة بنسبة 30٪ في هجمات الفدية عالمياً.">
+    <h3>💰 Ransomware</h3>
+    <p>هجمات الفدية التي تشفر الملفات وتطلب فدية.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+  <div class="card" tabindex="0" data-content="Phishing هجمات احتيالية لإقناع المستخدمين بالكشف عن معلومات حساسة مثل كلمات المرور. تُعتبر الأكثر شيوعاً في البريد الإلكتروني حول العالم.">
+    <h3>🎣 Phishing</h3>
+    <p>الهجمات الاحتيالية لسرقة المعلومات.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+  <div class="card" tabindex="0" data-content="DDoS هجمات تعطيل الخدمة عبر إرسال حركة مرور ضخمة للموقع. تُسجل سنوياً آلاف الهجمات على الشركات الكبرى والبنوك.">
+    <h3>🛑 DDoS</h3>
+    <p>تعطيل الخدمة عن طريق ضغط السيرفرات بحركة كبيرة.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+  <div class="card" tabindex="0" data-content="Zero-Day Exploit هجوم يستغل ثغرة غير معروفة لدى الشركة المصنعة للبرمجيات. غالباً ما يكون خطيراً ويصعب الوقاية منه.">
+    <h3>⚡ Zero-Day</h3>
+    <p>استغلال ثغرة جديدة غير مكتشفة بعد.</p>
+    <button class="btn small showMore">📖 المزيد</button>
+  </div>
+</div>
+
+<!-- زر العودة للأقسام -->
+  <button id="backBtn" onclick="window.location.href='features.html'"> العودة للأقسام</button>
+
+<!-- مودال الهجوم -->
+<div id="overlay" class="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3 id="modalTitle">تفاصيل الهجوم</h3>
+    <p id="modalContent"></p>
+    <button id="closeModal" class="modal-close close">إغلاق</button>
+  </div>
+</div>
+
+<script>
+  // عرض المودال للنصائح الموسعة
+  document.querySelectorAll('.showMore').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const card = btn.closest('.card');
+      document.getElementById('modalTitle').textContent = card.querySelector('h3').textContent;
+      document.getElementById('modalContent').textContent = card.dataset.content;
+      document.getElementById('overlay').style.display='flex';
+      document.getElementById('overlay').setAttribute('aria-hidden','false');
+    });
+  });
+
+  document.getElementById('closeModal').addEventListener('click',()=>{
+    document.getElementById('overlay').style.display='none';
+    document.getElementById('overlay').setAttribute('aria-hidden','true');
+  });
+
+  document.getElementById('overlay').addEventListener('click',e=>{
+    if(e.target===document.getElementById('overlay')){
+      document.getElementById('overlay').style.display='none';
+      document.getElementById('overlay').setAttribute('aria-hidden','true');
+    }
+  });
+
+  function goBack(){
+    alert('سيعود المستخدم الآن إلى صفحة الأقسام الرئيسية');
+    // هنا يمكنك توجيه الرابط للصفحة الرئيسية: window.location.href = 'index.html';
+  }
+</script>
+</body>
+</html>
